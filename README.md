@@ -17,7 +17,7 @@ Implementar un sistema de acceso controlado por roles, garantizando que solo el 
 ## Alcance del Proyecto
 El proyecto está diseñado para registrar los datos más importantes relacionados con las vacunas, los pacientes y el personal médico encargado de administrarlas. Permitirá asociar cada vacuna con el paciente que la recibe, según las necesidades del personal médico, mejorando así el control y el seguimiento de las inmunizaciones.
 
-# CORRECIONES
+# CORRECCIONES
 ## NUMERO 1: VIOLACION CODE SMELL
 
 ### CODIGO ORIGINAL: 
