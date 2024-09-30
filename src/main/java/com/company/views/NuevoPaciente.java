@@ -255,35 +255,32 @@ public class NuevoPaciente extends javax.swing.JPanel {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
-        if (!txtDni.getText().equals("Digiete el DNI del paciente")) {
-            if (!txtNombre.getText().equals("Digite el nombre(s) del paciente")) {
-                if (!txtApellido.getText().equals("Digite los apellidos del paciente")) {
-                    if (!txtDireccion.getText().equals("Digite la direccion del paciente")) {
-                        if (!txtCelular.getText().equals("Digite algun telefono de contacto del paciente")) {
-                            if (!txtFechaNac.getText().equals("Fecha de nacimeinto")) {
-                                ConexionPacVac pacVac = new ConexionPacVac(txtDni.getText(), txtNombre.getText(),
-                                        txtApellido.getText(), txtDireccion.getText(), txtCelular.getText(),
-                                        txtFechaNac.getText());
-                                FormVacunarPaciente.showJPanel(new VacunasDIsponibles(pacVac));
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
-            }
+        String mensajeError = "Alguno de los campos aún no ha sido rellenado";
+        
+        if (!txtDni.getText().equals("Digite el DNI del paciente") &&
+            !txtNombre.getText().equals("Digite el nombre(s) del paciente") &&
+            !txtApellido.getText().equals("Digite los apellidos del paciente") &&
+            !txtDireccion.getText().equals("Digite la direccion del paciente") &&
+            !txtCelular.getText().equals("Digite algun telefono de contacto del paciente") &&
+            !txtFechaNac.getText().equals("Fecha de nacimiento")) {
+
+            // Si todas las validaciones son correctas, procedemos
+            ConexionPacVac pacVac = new ConexionPacVac(
+                txtDni.getText(),
+                txtNombre.getText(),
+                txtApellido.getText(),
+                txtDireccion.getText(),
+                txtCelular.getText(),
+                txtFechaNac.getText()
+            );
+            
+            FormVacunarPaciente.showJPanel(new VacunasDIsponibles(pacVac));
         } else {
-            JOptionPane.showMessageDialog(null, "Alguno de los campos aun no a sido rellenado");
+            // Si alguna de las validaciones falla, mostramos el mensaje de error
+            JOptionPane.showMessageDialog(null, mensajeError);
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
 
     private void jCalendarFechaNacPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarFechaNacPropertyChange
         // TODO add your handling code here:
